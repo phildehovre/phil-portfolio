@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Homepage from './pages/Homepage';
 import './App.css';
 
 function App() {
@@ -8,46 +9,14 @@ function App() {
   const [translationFactor, setTranslationFactor] = useState(25)
 
 
-  let fogStyle = {
-    transform: `translate(${valueX * 0.8}px, ${valueY * 0.8}px)`,
-    height: '150vh',
-    width: '150vw',
-    backgroundImage: 'url("/fog.png")',
-    backgroundSize: '100%',
-    backgroundRepeat: 'no-repeat',
-    marginTop: '-10%',
-    marginRight: '-25%',
-    overflow: 'hidden',
-    position: 'absolute',
-    zIndex: 100,
+  const fogStyle = {
+    transform: `translate(${valueX * 2}px, ${valueY * 2}px)`
   }
-  let forestStyle = {
-    transform: `translate(${valueX * 0.4}px, ${valueY * 0.4}px)`,
-    height: '150vh',
-    width: '150vw',
-    border: '2px solid red',
-    backgroundImage: 'url("/forest.png")',
-    backgroundSize: '80%',
-    backgroundRepeat: 'no-repeat',
-    marginTop: '-10%',
-    marginLeft: '-15%',
-    overflow: 'hidden',
-    zIndex: '10',
-    backgroundColor: 'transparent',
-    position: 'absolute',
+  const forestStyle = {
+    transform: `translate(${valueX * 0.2}px, ${valueY * 0.2}px)`
   }
-  let skyStyle = {
-    transform: `translate(${valueX * 0.1}px, ${valueY * 0.1}px)`,
-    height: '150vh',
-    width: '150vw',
-    border: '2px solid red',
-    backgroundImage: 'url("/sky.png")',
-    backgroundSize: '100%',
-    backgroundRepeat: 'no-repeat',
-    marginTop: '-25%',
-    marginLeft: '-25%',
-    overflow: 'hidden',
-    position: 'absolute'
+  const skyStyle = {
+    transform: `translate(${valueX * 0}px, ${valueY * 0}px)`
   }
 
   document.addEventListener('pointermove', (e) => {
@@ -58,14 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className='forest-ctn'>
-        <div className='forest' style={forestStyle}></div>
-        <div className='sky' style={skyStyle}></div>
-        <div className='fog' style={fogStyle}></div>
-
-      </div>
-      <header className="App-header">
-      </header >
+      <Homepage />
     </div>
   );
 }
